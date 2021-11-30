@@ -23,8 +23,22 @@ function init() {
 	// controls
 	controls = new OrbitControls( camera, renderer.domElement );
 
-	geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
-	material = new THREE.MeshNormalMaterial();
+	let geometry = new THREE.BoxGeometry(0.2, 0.2, 0.2);
+	let material = new THREE.MeshNormalMaterial();
+
+	mesh = new THREE.Mesh( geometry, material );
+	scene.add( mesh );
+
+	// geometry
+	geometry = new THREE.SphereGeometry(0.3, 5.0, 5.5);
+
+	// material
+	material = new THREE.MeshNormalMaterial({
+		color: 0x00ffff,
+		flatShading: true,
+		transparent: true,
+		opacity: 0.7,
+	});
 
 	mesh = new THREE.Mesh( geometry, material );
 	scene.add( mesh );
